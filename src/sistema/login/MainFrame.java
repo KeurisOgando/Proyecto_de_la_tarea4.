@@ -9,8 +9,8 @@ import java.awt.event.ActionEvent;
 public class MainFrame extends JFrame {
     private final JTable tablaUsuarios;
     private final JButton btnActualizar;
-    private final JButton btnEliminar; // Nuevo botón para eliminar
-    private final JButton btnCerrarSesion; // Nuevo botón para cerrar sesión
+    private final JButton btnEliminar; //botón para eliminar
+    private final JButton btnCerrarSesion; // botón para cerrar sesión
     private final DefaultTableModel modeloTabla;
 
     public MainFrame() {
@@ -37,19 +37,19 @@ public class MainFrame extends JFrame {
 
         // Configuración de eventos
         btnActualizar.addActionListener(this::manejarActualizacion);
-        btnEliminar.addActionListener(this::manejarEliminacion); // Añade listener para el botón eliminar
+        btnEliminar.addActionListener(this::manejarEliminacion); 
         btnCerrarSesion.addActionListener(e -> cerrarSesion());
 
         // Diseño
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         panelBotones.add(btnActualizar);
-        panelBotones.add(btnEliminar); // Añade botón de eliminar al panel
-        panelBotones.add(btnCerrarSesion); // Añade botón de cerrar sesión al panel
+        panelBotones.add(btnEliminar); // botón de eliminar al panel
+        panelBotones.add(btnCerrarSesion); // botón de cerrar sesión al panel
 
         add(new JScrollPane(tablaUsuarios), BorderLayout.CENTER); // Tabla con scroll
         add(panelBotones, BorderLayout.SOUTH); // El Panel de botones en la parte inferior
 
-        // Carga usuarios al iniciar
+    
         actualizarTablaUsuarios();
     }
 
@@ -102,13 +102,13 @@ public class MainFrame extends JFrame {
                 "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
-            this.dispose(); // Cierra la MainFrame
-            new LoginFrame().setVisible(true); // Abre una nueva LoginFrame
+            this.dispose(); 
+            new LoginFrame().setVisible(true);
         }
     }
 
     public void actualizarTablaUsuarios() {
-        modeloTabla.setRowCount(0); // Limpia las filas existentes
+        modeloTabla.setRowCount(0); 
         for (Usuario usuario : UsuarioDAO.getInstancia().obtenerTodosUsuarios()) {
             modeloTabla.addRow(new Object[]{
                     usuario.getNombre(),
