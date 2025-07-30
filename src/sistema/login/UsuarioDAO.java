@@ -43,7 +43,7 @@ public class UsuarioDAO {
                 return true;
             }
         }
-        return false; // Usuario no encontrado
+        return false; 
     }
 
     public boolean eliminarUsuario(String nombreUsuario) {
@@ -56,7 +56,7 @@ public class UsuarioDAO {
                 return u;
             }
         }
-        return null; // Usuario no encontrado
+        return null; 
     }
 
     public boolean existeUsuario(String nombreUsuario) {
